@@ -2,6 +2,7 @@ package com.hitesh.todolist;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -16,6 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -31,11 +33,13 @@ public class MainActivity extends AppCompatActivity {
     SharedPreferences sharedPreferences;
     FloatingActionButton fab, fab1;
     boolean isFABOpen;
+    LinearLayout fabLayout1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        fabLayout1 = (LinearLayout) findViewById(R.id.fabLayout1);
 
         sharedPreferences = getApplicationContext().getSharedPreferences("com.hitesh.todolist", Context.MODE_PRIVATE);
         ListView listView = findViewById(R.id.listView);
@@ -86,10 +90,14 @@ public class MainActivity extends AppCompatActivity {
            //fab1.animate().translationYBy(155);
              if(!isFABOpen){
                  open();
+                 //fab1.show();
+                 fabLayout1.setVisibility(View.VISIBLE);
+                 //fab1.setVisibility(View.VISIBLE);
+                 //fabLayout1.animate().translationY(-getResources().getDimension(R.dimen.standard_55));
                  isFABOpen = true;
              } else {
                  close();
-                 fab1.setVisibility(0);
+                 fabLayout1.setVisibility(View.GONE);
                  isFABOpen = false;
              }
          }
@@ -97,12 +105,15 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void open(){
+        fabLayout1.animate().translationY(-100);
+        fab.animate().rotationBy(180);
 
-        fab1.animate().translationY(-120);
+        //fab1.animate().translationY(-130);
     }
     public void close(){
-
-        fab1.animate().translationY(10);
+        fabLayout1.animate().translationY(10);
+        fab.animate().rotationBy(180);
+        //fab1.animate().translationY(10);
     }
 
 
