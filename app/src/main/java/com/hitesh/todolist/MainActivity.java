@@ -106,13 +106,13 @@ public class MainActivity extends AppCompatActivity {
     }
     public void open(){
         fabLayout1.animate().translationY(-100);
-        fab.animate().rotationBy(180);
+        fab.animate().rotationBy(135);
 
         //fab1.animate().translationY(-130);
     }
     public void close(){
         fabLayout1.animate().translationY(10);
-        fab.animate().rotationBy(180);
+        fab.animate().rotationBy(-135);
         //fab1.animate().translationY(10);
     }
 
