@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSupportActionBar().hide();
         fabLayout1 = (LinearLayout) findViewById(R.id.fabLayout1);
 
         sharedPreferences = getApplicationContext().getSharedPreferences("com.hitesh.todolist", Context.MODE_PRIVATE);
@@ -103,6 +104,14 @@ public class MainActivity extends AppCompatActivity {
          }
      });
 
+     fab1.setOnClickListener(new View.OnClickListener() {
+         @Override
+         public void onClick(View v) {
+             Intent intent = new Intent(getApplicationContext(), editNoteActivity.class);
+             startActivity(intent);
+         }
+     });
+
     }
     public void open(){
         fabLayout1.animate().translationY(-100);
@@ -117,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    @Override
+    /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.top_menu, menu);
@@ -137,5 +146,5 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return false;
-    }
+    }*/
 }
