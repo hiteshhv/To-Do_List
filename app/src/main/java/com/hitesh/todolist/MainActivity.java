@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
                  isFABOpen = true;
              } else {
                  close();
-                 fabLayout1.setVisibility(View.GONE);
+                 //fabLayout1.setVisibility(View.GONE);
                  isFABOpen = false;
              }
          }
@@ -116,12 +116,14 @@ public class MainActivity extends AppCompatActivity {
     public void open(){
         fabLayout1.animate().translationY(-100);
         fab.animate().rotationBy(135);
+        fabLayout1.animate().alpha(1).setDuration(500);
 
         //fab1.animate().translationY(-130);
     }
     public void close(){
         fabLayout1.animate().translationY(10);
         fab.animate().rotationBy(-135);
+        fabLayout1.animate().alpha(0.0f).setDuration(500);
         //fab1.animate().translationY(10);
     }
 
