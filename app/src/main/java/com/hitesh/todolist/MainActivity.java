@@ -34,7 +34,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
+
         fabLayout1 = (LinearLayout) findViewById(R.id.fabLayout1);
+        fab = findViewById(R.id.fab);
+        fab1 = findViewById(R.id.fab1);
 
         sharedPreferences = getApplicationContext().getSharedPreferences("com.hitesh.todolist", Context.MODE_PRIVATE);
         ListView listView = findViewById(R.id.listView);
@@ -76,23 +79,16 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
-       fab = findViewById(R.id.fab);
-       fab1 = findViewById(R.id.fab1);
      fab.setOnClickListener(new View.OnClickListener() {
          @Override
 
          public void onClick(View v) {
-           //fab1.animate().translationYBy(155);
              if(!isFABOpen){
                  open();
-                 //fab1.show();
                  fabLayout1.setVisibility(View.VISIBLE);
-                 //fab1.setVisibility(View.VISIBLE);
-                 //fabLayout1.animate().translationY(-getResources().getDimension(R.dimen.standard_55));
                  isFABOpen = true;
              } else {
                  close();
-                 //fabLayout1.setVisibility(View.GONE);
                  isFABOpen = false;
              }
          }
@@ -111,36 +107,10 @@ public class MainActivity extends AppCompatActivity {
         fabLayout1.animate().translationY(-100);
         fab.animate().rotationBy(135);
         fabLayout1.animate().alpha(1).setDuration(500);
-
-        //fab1.animate().translationY(-130);
     }
     public void close(){
         fabLayout1.animate().translationY(10);
         fab.animate().rotationBy(-135);
         fabLayout1.animate().alpha(0.0f).setDuration(500);
-        //fab1.animate().translationY(10);
     }
-
-
-    /*@Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.top_menu, menu);
-
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        super.onOptionsItemSelected(item);
-
-        if (item.getItemId() == R.id.add_note) {
-            Intent intent = new Intent(getApplicationContext(), editNoteActivity.class);
-            startActivity(intent);
-
-            return true;
-        }
-
-        return false;
-    }*/
 }
