@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void open(){
-        fabLayout1.animate().translationY(-100);
+        fabLayout1.animate().translationY(-50);
         fab.animate().rotationBy(135);
         fabLayout1.animate().alpha(1).setDuration(500);
     }
