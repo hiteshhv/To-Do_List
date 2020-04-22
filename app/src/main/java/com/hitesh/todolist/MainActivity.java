@@ -23,7 +23,7 @@ import java.util.HashSet;
 public class MainActivity extends AppCompatActivity {
 
     static ArrayList<String> notes = new ArrayList<>();
-    static ArrayAdapter arrayAdapter;
+    static ArrayAdapter<String> arrayAdapter;
     SharedPreferences sharedPreferences;
     FloatingActionButton fab, fab1;
     boolean isFABOpen;
@@ -47,10 +47,10 @@ public class MainActivity extends AppCompatActivity {
         if (set == null) {
             notes.add("Example Note");
         } else {
-            notes = new ArrayList(set);
+            notes = new ArrayList<>(set);
         }
 
-        arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, notes);
+        arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, notes);
         listView.setAdapter(arrayAdapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -101,7 +101,6 @@ public class MainActivity extends AppCompatActivity {
              startActivity(intent);
          }
      });
-
     }
     public void open(){
         fabLayout1.animate().translationY(-50);
